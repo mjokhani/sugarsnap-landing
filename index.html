@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SugarSnap – See the sugar in your food & drinks</title>
   <style>
-    /* Light theme */
     :root { --bg:#f7fafc; --card:#ffffff; --text:#0b1320; --muted:#4a5568; --border:#e2e8f0; }
     *{ box-sizing: border-box }
     body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
@@ -31,6 +30,15 @@
     .headline { margin:0; font-size: clamp(2rem, 3vw + 1rem, 3rem); line-height: 1.08; }
     .lead { margin-top: 12px; color: var(--muted); max-width: 46ch; }
     @media (max-width: 900px){ .lead{ margin-left:auto; margin-right:auto; } }
+
+    .btn-store {
+      display:inline-block;
+      margin-top: 24px;
+    }
+    .btn-store img {
+      height: 56px;
+      width: auto;
+    }
 
     .mock {
       border-radius: 18px; background: var(--card); border: 1px solid var(--border);
@@ -71,6 +79,11 @@
       <div>
         <h1 class="headline">See the sugar in your food &amp; drinks — instantly</h1>
         <p class="lead">Snap a photo or scan a barcode. SugarSnap turns results into a visual sugar pile with portion-aware estimates and free-sugar guidance.</p>
+
+        <!-- App Store Button -->
+        <a class="btn-store" href="https://apps.apple.com/" target="_blank" rel="noopener">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
       </div>
 
       <!-- Right: Screenshot -->
