@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SugarSnap — See Sugar, Instantly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO -->
+  <meta name="description" content="SugarSnap shows the sugar in your food and drinks. Snap a photo or scan a barcode to see sugar cubes, portion-aware estimates, and free-sugar guidance." />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SugarSnap — See Sugar, Instantly" />
+  <meta property="og:description" content="Snap a photo or scan a barcode to see the sugar in real-world cubes. Portion-aware, drink-aware, and lightning fast." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:image" content="https://yourdomain.com/og-sugarsnap.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SugarSnap — See Sugar, Instantly" />
+  <meta name="twitter:description" content="Snap a photo or scan a barcode to see the sugar in real-world cubes." />
+  <meta name="twitter:image" content="https://yourdomain.com/og-sugarsnap.jpg" />
+
+  <!-- App Badges (replace with your real App Store link when live) -->
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="/icons/favicon-32.png" sizes="32x32" />
+  <meta name="theme-color" content="#0b0f14" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"MobileApplication",
+    "name":"SugarSnap",
+    "operatingSystem":"iOS",
+    "applicationCategory":"HealthApplication",
+    "description":"SugarSnap estimates sugar for foods & drinks using camera or barcode. Visual sugar pile, portion sizing, and free-sugar guidance.",
+    "url":"https://yourdomain.com/",
+    "offers": {
+      "@type":"Offer",
+      "price":"0",
+      "priceCurrency":"USD"
+    }
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#10161f; --text:#e8eef5; --muted:#a7b3c2;
+      --brand:#6ee7ff; --accent:#b69cff; --success:#79f0b2; --danger:#ff6b6b;
+      --ring:rgba(110,231,255,0.55);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --grad: radial-gradient(1200px 800px at 80% -20%, rgba(110,231,255,.2), transparent 60%),
+              radial-gradient(900px 700px at -10% -10%, rgba(182,156,255,.15), transparent 55%);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7fafc; --card:#ffffff; --text:#0b1320; --muted:#4a5568; --brand:#0ea5e9; --accent:#7c3aed; --ring:rgba(14,165,233,.4); --shadow:0 12px 32px rgba(0,0,0,.08);}
+      body{ background:linear-gradient(180deg,#f7fafc, #eef2f6 30%, #eef2f6);}
+    }
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0 }
+    body{ font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); }
+    a{ color: var(--brand); text-decoration: none }
+    a:hover{ text-decoration: underline }
+    .container{ max-width:1120px; margin:0 auto; padding: 0 20px }
+    .hero{
+      position:relative; overflow:hidden; padding: 72px 0 40px; background: var(--bg); isolation:isolate;
+    }
+    .hero::before{ content:""; position:absolute; inset:0; background: var(--grad); z-index:0; filter: blur(0.0px);}
+    .hero-inner{ display:grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items:center; position:relative; z-index:2 }
+    @media (max-width: 920px){ .hero-inner{ grid-template-columns: 1fr; } }
+    .kicker{ color: var(--brand); font-weight: 600; letter-spacing:.08em; text-transform: uppercase; font-size: .88rem }
+    h1{ font-size: clamp(2.1rem, 3.2vw + 1rem, 3.25rem); line-height:1.08; margin:.35rem 0 1rem }
+    .lead{ font-size: clamp(1rem, 1vw + .6rem, 1.2rem); color: var(--muted) }
+    .cta{ display:flex; gap:12px; margin-top:22px; flex-wrap:wrap }
+    .btn{ padding:12px 16px; border-radius:12px; border:1px solid transparent; font-weight:600; display:inline-flex; align-items:center; gap:10px; cursor:pointer; }
+    .btn-primary{ background: linear-gradient(90deg, var(--brand), var(--accent)); color:#081018; box-shadow: var(--shadow) }
+    .btn-secondary{ background:var(--card); color:var(--text); border-color:#223047 }
+    .badge{ font-size:.875rem; padding:6px 10px; border-radius:999px; background: #0c1624; color: var(--brand); border:1px solid #1a2a40 }
+    .card{ background:var(--card); border: 1px solid #223047; border-radius: 18px; box-shadow: var(--shadow) }
+    .phone{
+      aspect-ratio: 9/19; border-radius: 26px; padding:14px; background: #0d141e; border: 1px solid #1b2738; box-shadow: var(--shadow);
+      position:relative;
+    }
+    .phone .screen{ border-radius: 18px; background: #000; height:100%; display:flex; align-items:center; justify-content:center; padding: 14px }
+    .screen img{ max-width:100%; height:auto; border-radius: 12px }
+    .grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }
+    @media (max-width: 920px){ .grid{ grid-template-columns: 1fr; } }
+    .section{ padding: 60px 0 }
+    .feature{ padding:18px }
+    .feature h3{ margin:.25rem 0 .25rem }
+    .muted{ color: var(--muted) }
+    .pricing{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }
+    @media (max-width: 920px){ .pricing{ grid-template-columns: 1fr; } }
+    .price-card{ padding:22px; position:relative }
+    .price{ font-size:2rem; font-weight:800; }
+    .best{ outline: 2px solid var(--brand); }
+    .tick{ color: var(--success) }
+    .faq-item{ padding:16px 18px }
+    footer{ padding:28px 0; border-top:1px solid #1c2a3e; color: var(--muted) }
+    .tiny{ font-size:.85rem }
+    .store-badges img{ height:44px }
+    .ring:focus{ outline:none; box-shadow: 0 0 0 4px var(--ring); }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="kicker">Health · Nutrition · Camera</span>
+        <h1>See the sugar in your food & drinks — instantly.</h1>
+        <p class="lead">Snap a photo or scan a barcode. SugarSnap turns results into a visual <b>sugar pile</b>, with portion-aware estimates and free-sugar guidance.</p>
+        <div class="cta">
+          <a class="btn btn-primary ring" href="#download">Get SugarSnap</a>
+          <a class="btn btn-secondary ring" href="#pricing">See Pricing</a>
+          <span class="badge">10 free credits on sign-up</span>
+        </div>
+      </div>
+      <div class="phone">
+        <div class="screen">
+          <!-- Replace with your real screenshot -->
+          <img src="screenshot-hero.png" alt="SugarSnap app screenshot">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRUST/FEATURES -->
+  <section class="section">
+    <div class="container grid">
+      <div class="card feature">
+        <h3>📷 Photo or 📦 Barcode</h3>
+        <p class="muted">Use the camera or your library. Barcode lookups tap Open Food Facts and USDA FoodData Central.</p>
+      </div>
+      <div class="card feature">
+        <h3>🍬 Visual Sugar Pile</h3>
+        <p class="muted">We convert grams into cubes and scale the pile so you feel the difference instantly.</p>
+      </div>
+      <div class="card feature">
+        <h3>🥤 Drinks Aware</h3>
+        <p class="muted">Zero-sugar guards for water/unsweetened tea/coffee; coconut water ≈ 4g/100ml.</p>
+      </div>
+      <div class="card feature">
+        <h3>⚖️ Portion Controls</h3>
+        <p class="muted">Quick switching between weight (g/ml) and count for whole fruits.</p>
+      </div>
+      <div class="card feature">
+        <h3>🙂→😱 Emoji Severity</h3>
+        <p class="muted">Clearly see how a serving compares to a 30g daily free-sugar guideline.</p>
+      </div>
+      <div class="card feature">
+        <h3>🔒 Private by Design</h3>
+        <p class="muted">Photos are processed to provide results and not stored on our servers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section">
+    <div class="container">
+      <h2 style="margin:0 0 14px">Screenshots</h2>
+      <p class="muted" style="margin-top:0">Swap these with your actual App Store screenshots.</p>
+      <div class="grid">
+        <img class="card" src="screenshot-1.png" alt="SugarSnap screenshot 1" />
+        <img class="card" src="screenshot-2.png" alt="SugarSnap screenshot 2" />
+        <img class="card" src="screenshot-3.png" alt="SugarSnap screenshot 3" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2 style="margin:0 0 18px">Simple Pricing</h2>
+      <div class="pricing">
+        <div class="card price-card">
+          <h3>Small</h3>
+          <p class="muted">50 snaps</p>
+          <div class="price">$3.99</div>
+          <ul class="muted">
+            <li class="tick">Camera & barcode</li>
+            <li class="tick">Portion controls</li>
+          </ul>
+          <a class="btn btn-secondary ring" href="#download">Choose Small</a>
+        </div>
+        <div class="card price-card best">
+          <h3>Medium <span class="badge">Best Value</span></h3>
+          <p class="muted">250 snaps</p>
+          <div class="price">$9.99</div>
+          <ul class="muted">
+            <li class="tick">All features</li>
+            <li class="tick">Priority improvements</li>
+          </ul>
+          <a class="btn btn-primary ring" href="#download">Choose Medium</a>
+        </div>
+        <div class="card price-card">
+          <h3>Large</h3>
+          <p class="muted">1000 snaps</p>
+          <div class="price">$39.99</div>
+          <ul class="muted">
+            <li class="tick">Power users</li>
+            <li class="tick">Best per-snap price</li>
+          </ul>
+          <a class="btn btn-secondary ring" href="#download">Choose Large</a>
+        </div>
+      </div>
+      <p class="tiny muted" style="margin-top:12px">Each photo or barcode uses 1 credit. We include 10 free credits for new users.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2 style="margin:0 0 12px">FAQ</h2>
+      <div class="card faq-item">
+        <strong>Does SugarSnap store my photos?</strong>
+        <p class="muted">No—photos are processed to provide results and not stored on our servers.</p>
+      </div>
+      <div class="card faq-item">
+        <strong>Where does nutrition data come from?</strong>
+        <p class="muted">From product labels via Open Food Facts, USDA FoodData Central, and our curated overrides when needed.</p>
+      </div>
+      <div class="card faq-item">
+        <strong>What about free sugar vs intrinsic sugar?</strong>
+        <p class="muted">We show emoji severity vs a 30g daily free-sugar guide. Whole fruit and plain milk do not count toward that limit.</p>
+      </div>
+      <div class="card faq-item">
+        <strong>Is this medical advice?</strong>
+        <p class="muted">No. Always check labels and consult a professional for medical or dietary guidance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download" class="section">
+    <div class="container card" style="padding:22px">
+      <div style="display:flex; flex-wrap:wrap; gap:18px; align-items:center; justify-content:space-between">
+        <div>
+          <h2 style="margin:.25rem 0">Get SugarSnap</h2>
+          <p class="muted" style="margin-top:6px">Start with 10 free credits. Turn grams into cubes and get instant clarity.</p>
+        </div>
+        <div class="store-badges">
+          <!-- Replace with your real App Store badge/link -->
+          <a href="https://apps.apple.com/app/idYOUR_APP_ID"><img src="app-store-badge.svg" alt="Download on the App Store" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between">
+      <div>© <span id="year"></span> SugarSnap</div>
+      <nav style="display:flex; gap:14px">
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="mailto:hello@yoursugarsnap.com">Contact</a>
+        <a href="https://twitter.com/yourhandle">Twitter</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Tiny script -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
