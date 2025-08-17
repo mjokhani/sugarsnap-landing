@@ -103,6 +103,50 @@
     .store-badges img{ height:44px }
     .ring:focus{ outline:none; box-shadow: 0 0 0 4px var(--ring); }
   </style>
+
+<style>
+  :root { --bg:#0b0f14; --text:#e8eef5; --muted:#a7b3c2; }
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); }
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .hero { padding: 64px 0 36px; }
+  .hero-inner { 
+    display:grid; 
+    grid-template-columns: 1.1fr 1fr; 
+    gap: 32px; 
+    align-items:center;
+  }
+  @media (max-width: 900px){ .hero-inner { grid-template-columns: 1fr; } }
+
+  .headline { margin: 0; font-size: clamp(2rem, 3.2vw + 1rem, 3.2rem); line-height: 1.08; }
+  .lead { color: var(--muted); margin-top: 10px; }
+
+  /* Image containment */
+  .mock { 
+    border-radius: 24px; 
+    background: #0d141e; 
+    border: 1px solid #1b2738; 
+    padding: 14px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+  }
+  .screen {
+    position: relative;
+    overflow: hidden;       /* prevents spill */
+    min-height: 420px;      /* keeps a nice frame on desktop */
+    border-radius: 16px;
+    background: linear-gradient(180deg,#0e141d,#0a0f15);
+    display:flex; align-items:center; justify-content:center;
+    padding: 12px;
+  }
+  .screen img {
+    display:block;
+    max-width:100%;
+    height:auto;
+    object-fit: contain;    /* fit inside the frame */
+    border-radius: 12px;
+  }
+</style>
+
+
 </head>
 <body>
 
@@ -122,15 +166,24 @@
       <div class="phone">
         <div class="screen">
           <!-- Replace with your real screenshot -->
-          <section class="hero">
-  <h1>See the sugar in your food & drinks — instantly</h1>
-  <img
-    src="screenshot-hero.png"
-    alt="SugarSnap app screenshot showing sugar pile"
-    width="900" height="1800"
-    loading="lazy"
-    decoding="async"
-  />
+       <section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <h1 class="headline">See the sugar in your food &amp; drinks — instantly</h1>
+      <p class="lead">Snap a photo or scan a barcode. SugarSnap turns results into a visual sugar pile with portion-aware estimates.</p>
+    </div>
+
+    <div class="mock">
+      <div class="screen">
+        <img
+          src="screenshot-hero.png"
+          alt="SugarSnap app screenshot showing sugar pile"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
 </section>
          
         </div>
